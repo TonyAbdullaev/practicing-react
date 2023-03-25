@@ -1,70 +1,44 @@
-# Getting Started with Create React App
+# React 18 v.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Batching 
+We use it for optimization...
 
-## Available Scripts
+In `React 17v` was not available to use method such as `setTimeout` or `Promise.resolve()`
+in function to batching function because they didn't work. But in `React 18v` it works as
+it should work.
 
-In the project directory, you can run:
+**Batching function** is the function where you add all setStates in one function so 
+React collects all change states and do them by one rendering. And if we want to use methods
+as `setTimeout` in 18v of React it works properly. 
 
-### `npm start`
+### Transitions
+We can use new hooks `useTransition()` in React 18v. It is a React Hook that lets you update
+the state without blocking the UI.
+It doesn't take any params and return an array with two items:
+- isPending flag - tells you whether there is a pending transition
+- startTransition function that lets you mark a state update as a transition.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+When we should not to use transition is by user operation such as: input, 
+open dropdown, onClick on button and so on...
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+We should use it when we can make parallel rendering: switching tabs, show prompt or changing 
+interface
 
-### `npm test`
+There we have 2 state, isPending - It's like isLoading state, 
+and second is startTransition - callback function that lets mark a state update as a transition
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### useDeferredValue
+This hooks provide us to defer rendering. 
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If we use input and add as a value some state, and while writing we must show result of research,
+It will firstly rerender with old state and only after that will rerender with newly received
+value in BACKGROUND!!!
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+We can combine it with `<Suspence>` and `fallback` in it... By UI it will be great. 
 
-### `npm run eject`
+### useId
+This hooks return unique id.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 
