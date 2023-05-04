@@ -12,9 +12,12 @@ M
 src/examples/DeferredValue.js,5\6\564cf2f6e36f59a7232f71b89c6372193aa278b3
 O
 src/examples/BatchingExample.js,6\f\6f5e2757c6d6f731e989d79f720e7567c3c8206f
-<
-src/index.js,f\9\f900edc44cb929c2267a16100a32851f6d5b477d
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 E
 src/hooks/useHover.js,d\d\dd03e2963e8022fdfa4a81e6a478d48f3bd0641f
+H
+src/components/Hover.jsx,6\1\615d4b5a128217a92d046515dd58bb245a4fcbc4
+:
+
+src/App.js,1\e\1e43fa63aecd2127be034b3fb9d4caa172275714
